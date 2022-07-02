@@ -1,0 +1,1 @@
+canvas{outline:1px solid black}#layers{border-radius:20px}#layers .layer{padding:10px;font-family:SF UI Text,SF UI Display,Segoe UI,Arial,Ubuntu,sans-serif;font-weight:bold}#layers .layer:nth-child(2n){background:#5e5e5e}#layers .layer:nth-child(2n-1){background:#b6b6b6}input[type=color]{width:50px;height:50px;border-color:blue}
