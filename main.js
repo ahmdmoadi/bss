@@ -1,8 +1,8 @@
 let c = document.querySelector("canvas");
 let ctx = c.getContext("2d");
 
-c.width = window.innerWidth * .9;
-c.height = window.innerHeight * .45;
+c.width = round(window.innerWidth * .9);
+c.height = round(window.innerHeight * .45);
 
 //eslint:ignore
 let layers = [{ x: 0, y: 0, w: 10, h: 10, c: "black", v: true }];
@@ -54,9 +54,12 @@ function constructGrid(inverted=0) {
             data[4*i+3]=a;
         }
         let x = i%width;
-        let y = i-(i%width)/width;
-        if(x===10 && y===10)
-        set(255,0,0,255);
+        // let y = i-(i%width)/width;
+        // if(x===10 && y===10)
+        // set(255,0,0,255);
+        if(x%10!==0) {
+            set(0,0,0,255)
+        }
     }
     imgData.data=data;
     ctx.putImageData(imgData,0,0);
