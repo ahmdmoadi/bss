@@ -3,7 +3,7 @@ canvas {
 }
 
 #layers {
-  border-radius: 20px;
+  border: 1px solid black;
 }
 #layers .layer {
   padding: 10px;
@@ -11,10 +11,10 @@ canvas {
   font-weight: bold;
 }
 #layers .layer:nth-child(2n) {
-  background: rgb(94, 94, 94);
+  background: rgb(206, 206, 206);
 }
 #layers .layer:nth-child(2n-1) {
-  background: rgb(182, 182, 182);
+  background: rgb(241, 241, 241);
 }
 
 input[type=color] {
