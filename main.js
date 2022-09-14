@@ -1,6 +1,8 @@
 let c = document.querySelector("canvas");
 let ctx = c.getContext("2d");
 
+let GRIDOFF = false;
+
 c.width = round(window.innerWidth * .9,10);
 c.height = round(window.innerHeight * .45,10);
 
@@ -79,6 +81,7 @@ function constructGrid(inverted=0) {
     generated_grid=imgData;
 }
 function putGrid() {
+    if(GRIDOFF)return;
     if(generated_grid===undefined)return;
     ctx.putImageData(generated_grid,0,0);
 }
@@ -137,3 +140,22 @@ function updateLayerList() {
         layerList.appendChild(layerItem);
     });
 } updateLayerList();
+
+grid.addEventListener("change",e=>{
+    if(e.target.checked) {
+        GRIDOFF = false;
+    } else {
+        GRIDOFF = true;
+    }
+})
+
+let exportBtn = document.querySelector("#export");
+
+exportBtn.addEventListener("click", (e)=>{
+    let a = document.createElement("a");
+    document.body.appendChild(a);
+    a.href=c.toDataURL();
+    a.download=prompt("Type ScreenShot picture name (without extension)")+".png";
+    a.dispatchEvent(new MouseEvent("click"));
+    document.body.removeChild(a);
+})
